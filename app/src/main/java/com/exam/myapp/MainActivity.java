@@ -3,6 +3,7 @@ package com.exam.myapp;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.databinding.DataBindingUtil;
 
 import android.net.wifi.aware.DiscoverySession;
 import android.os.Bundle;
@@ -14,6 +15,8 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.ScrollView;
 import android.widget.TextView;
+
+import com.exam.myapp.databinding.ActivityMainBinding;
 
 import org.jetbrains.annotations.NotNull;
 import org.json.JSONException;
@@ -37,18 +40,15 @@ public class MainActivity extends AppCompatActivity {
         }
     });
 
+    private ActivityMainBinding binding;
+
     private static final String SERVER_URL = "ws://52.81.65.206:9800/ws";
+    private static final String TEST_URL = "wss://echo.websocket.org";
     private static final String TAG = "barry";
-    private EditText etContent;
-    private TextView tvMsg;
-    private ScrollView scrollView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        scrollView = findViewById(R.id.scroll_view);
-        etContent = findViewById(R.id.inputMsg);
-        tvMsg = findViewById(R.id.tv_msg);
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
     }
 
     private OkHttpClient mOkHttpClient;
@@ -56,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
     private void webSocketConnect() {
         mOkHttpClient = new OkHttpClient();
         Request request = new Request.Builder()
-                .url(SERVER_URL)
+                .url(TEST_URL)
                 .build();
         ClientWebSocketListener listener=new ClientWebSocketListener();
         mOkHttpClient.newWebSocket(request,listener);
@@ -72,54 +72,47 @@ public class MainActivity extends AppCompatActivity {
 
     public void sendMsg(View view) {
         if (mWebSocket!=null){
-            if (etContent.getText()!=null){
-                String text = etContent.getText().toString();
+            if (binding.inputMsg.getText()!=null){
+                String text = binding.inputMsg.getText().toString();
                 mWebSocket.send(text);
             }
         }else {
-            Log.d(TAG,"no connection ");
+            appendMsgDisplay("no connection");
         }
     }
 
     public void close(View view) {
         if(null!=mWebSocket){
-            mWebSocket.close(1000,"bye");
+            mWebSocket.close(1000,"client say bye");
             mWebSocket=null;
         }
     }
 
     public void clear(View view) {
-        tvMsg.setText("");
+        binding.tvMsg.setText("");
     }
 
     private final class ClientWebSocketListener extends WebSocketListener {
         @Override
         public void onOpen(@NotNull WebSocket webSocket, @NotNull Response response) {
             mWebSocket=webSocket;
-            Log.d(TAG,"onOpen response:"+response.message());
-            mWebSocket.send("hey i`m client");
+            showServerMsg("connected");
         }
 
         @Override
         public void onMessage(@NotNull WebSocket webSocket, @NotNull String text) {
-            Message message=Message.obtain();
-            message.obj=text;
-            message.what = 1;
-            mWebSocketHandler.sendMessage(message);
+           showServerMsg(text);
         }
 
         @Override
         public void onMessage(@NotNull WebSocket webSocket, ByteString bytes) {
-            Message message=Message.obtain();
-            message.obj=bytes.utf8();
-            message.what = 1;
-            mWebSocketHandler.sendMessage(message);
+            showServerMsg(bytes.utf8());
         }
 
         @Override
         public void onClosing(@NotNull WebSocket webSocket, int code, @NotNull String reason) {
             if(null!=mWebSocket){
-                mWebSocket.close(1000,"bye");
+                mWebSocket.close(1000,"close");
                 mWebSocket=null;
             }
         }
@@ -141,19 +134,27 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    private void showServerMsg(String msg){
+        Message message=Message.obtain();
+        message.obj=msg;
+        message.what = 1;
+        mWebSocketHandler.sendMessage(message);
+    }
+
     private void appendMsgDisplay(String msg) {
+        Log.d(TAG,"msg :"+msg);
         StringBuilder textBuilder = new StringBuilder();
-        if (!TextUtils.isEmpty(tvMsg.getText())) {
-            textBuilder.append(tvMsg.getText().toString());
+        if (!TextUtils.isEmpty(binding.tvMsg.getText())) {
+            textBuilder.append(binding.tvMsg.getText().toString());
             textBuilder.append("\n");
         }
         textBuilder.append(msg);
         textBuilder.append("\n");
-        tvMsg.setText(textBuilder.toString());
-        tvMsg.post(new Runnable() {
+        binding.tvMsg.setText(textBuilder.toString());
+        binding.tvMsg.post(new Runnable() {
             @Override
             public void run() {
-                scrollView.fullScroll(ScrollView.FOCUS_DOWN);
+                binding.scrollView.fullScroll(ScrollView.FOCUS_DOWN);
             }
         });
     }
