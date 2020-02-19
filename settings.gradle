@@ -1,0 +1,2 @@
+include ':app', ':wslib'
+rootProject.name='MyApple'
