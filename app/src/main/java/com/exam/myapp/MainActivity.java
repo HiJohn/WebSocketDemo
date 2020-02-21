@@ -17,6 +17,8 @@ import android.widget.ScrollView;
 import android.widget.TextView;
 
 import com.exam.myapp.databinding.ActivityMainBinding;
+import com.exam.netstatelib.NetWorkMonitorManager;
+import com.exam.netstatelib.NetWorkState;
 
 import org.jetbrains.annotations.NotNull;
 import org.json.JSONException;
@@ -157,5 +159,24 @@ public class MainActivity extends AppCompatActivity {
                 binding.scrollView.fullScroll(ScrollView.FOCUS_DOWN);
             }
         });
+    }
+
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        NetWorkMonitorManager.getInstance().register(this);
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        NetWorkMonitorManager.getInstance().unregister(this);
+
+    }
+
+//    @NetWorkMonitor(monitorFilter = {NetWorkState.GPRS,NetWorkState.NONE})
+    public void onNetWorkStateChange(NetWorkState netWorkState) {
+        Log.i("barry", "onNetWorkStateChange >>> :" + netWorkState.name());
     }
 }

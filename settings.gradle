@@ -1,2 +1,2 @@
-include ':app', ':wslib'
+include ':app', ':wslib', ':netstatelib'
 rootProject.name='MyApple'
