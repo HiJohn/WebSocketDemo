@@ -2,12 +2,11 @@ plugins {
     id "com.android.application"
 }
 android {
-    compileSdkVersion 33
+    compileSdk 33
     namespace 'com.exam.myapp'
     defaultConfig {
         applicationId "com.exam.myapp"
-        minSdkVersion 21
-        targetSdkVersion 33
+        minSdkVersion 26
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
@@ -21,6 +20,7 @@ android {
 
     buildFeatures {
         dataBinding = true
+        viewBinding = true
     }
 
     flavorDimensions "na"
@@ -42,5 +42,6 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
 
     implementation project(":netstatelib")
-    implementation("com.squareup.okhttp3:okhttp:4.10.0")
+    implementation project(":jscall")
+    implementation("com.squareup.okhttp3:okhttp:4.11.0")
 }

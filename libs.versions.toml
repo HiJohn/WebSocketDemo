@@ -1,0 +1,124 @@
+[versions]
+androidGradleVersion = "7.4.2" #https://developer.android.com/studio/releases/gradle-plugin#updating-plugin
+kotlinVersion = "1.8.20" #https://github.com/JetBrains/kotlin/releases
+protobufPluginVersion = "0.9.1" #https://plugins.gradle.org/plugin/com.google.protobuf
+
+jvmTargetVersion = "1.8"
+minSdk = "21"
+compileSdk = "33"
+targetSdk = "33"
+androidxCoreVersion = "1.8.0" #https://androidx.tech/artifacts/core/core/
+
+kotlinxCoroutinesVersion = "1.6.4" #https://github.com/Kotlin/kotlinx.coroutines/releases
+annotationVersion = "1.6.0" #https://androidx.tech/artifacts/annotation/annotation/
+
+appcompatVersion = "1.4.1" #https://androidx.tech/artifacts/appcompat/appcompat/
+
+activityVersion = "1.7.0" #https://androidx.tech/artifacts/activity/activity-ktx/
+fragmentVersion = "1.5.6" #https://androidx.tech/artifacts/fragment/fragment-ktx/
+
+activityComposeVersion = "1.5.0"
+
+recyclerviewVersion = "1.3.0" #https://androidx.tech/artifacts/recyclerview/recyclerview/
+lifecycleVersion = "2.6.1" #https://androidx.tech/artifacts/lifecycle/lifecycle-common/
+
+roomVersion = "2.5.1" #https://androidx.tech/artifacts/room/room-ktx/
+camera_version = "1.3.0-alpha05" #https://androidx.tech/artifacts/camera/camera-camera2/
+
+constraintlayoutVersion = "2.1.4" #https://androidx.tech/artifacts/constraintlayout/constraintlayout/
+navigationVersion = "2.5.3" #https://androidx.tech/artifacts/navigation/navigation-common-ktx/
+materialVersion = "1.5.0" #https://github.com/material-components/material-components-android/releases
+
+protobufVersion = "3.22.2" #https://github.com/protocolbuffers/protobuf/tree/main/java
+okhttpVersion = "4.10.0" #https://search.maven.org/artifact/com.squareup.okhttp3/okhttp
+okioVersion = "3.3.0" #https://github.com/square/okio/tags
+rxhttpVersion = "3.0.2" #https://github.com/liujingxing/rxhttp/releases
+moshiVersion = "1.14.0" #https://github.com/square/moshi/tags
+coilVersion = "2.3.0" #https://github.com/coil-kt/coil/releases
+lottieVersion = "6.0.0" #https://github.com/airbnb/lottie-android/releases
+mmkvVersion = "1.2.15" #https://github.com/Tencent/MMKV/releases
+timberVersion = "5.0.1" #https://github.com/JakeWharton/timber/releases
+
+coilComposeVersion = "2.4.0"
+
+
+
+
+
+[libraries]
+androidx-core = { group = "androidx.core", name = "core-ktx", version.ref = "androidxCoreVersion" }
+annotation = { group = "androidx.annotation", name = "annotation", version.ref = "annotationVersion" }
+appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompatVersion" }
+activity = { group = "androidx.activity", name = "activity-ktx", version.ref = "activityVersion" }
+fragment = { group = "androidx.fragment", name = "fragment-ktx", version.ref = "fragmentVersion" }
+activity-compose = { group = "androidx.activity", name = "activity-compose", version.ref = "activityComposeVersion" }
+recyclerview = { group = "androidx.recyclerview", name = "recyclerview", version.ref = "recyclerviewVersion" }
+
+lifecycle-common = { group = "androidx.lifecycle", name = "lifecycle-common", version.ref = "lifecycleVersion" }
+lifecycle-runtime = { group = "androidx.lifecycle", name = "lifecycle-runtime-ktx", version.ref = "lifecycleVersion" }
+lifecycle-process = { group = "androidx.lifecycle", name = "lifecycle-process", version.ref = "lifecycleVersion" }
+lifecycle-viewmodel = { group = "androidx.lifecycle", name = "lifecycle-viewmodel-ktx", version.ref = "lifecycleVersion" }
+lifecycle-service = { group = "androidx.lifecycle", name = "lifecycle-service", version.ref = "lifecycleVersion" }
+
+room = { group = "androidx.room", name = "room-ktx", version.ref = "roomVersion" }
+room-compiler = { group = "androidx.room", name = "room-compiler", version.ref = "roomVersion" }
+
+rxhttp = { group = "com.github.liujingxing.rxhttp", name = "rxhttp", version.ref = "rxhttpVersion" }
+rxhttp-moshi = { group = "com.github.liujingxing.rxhttp", name = "converter-moshi", version.ref = "rxhttpVersion" }
+rxhttp-protobuf = { group = "com.github.liujingxing.rxhttp", name = "converter-protobuf", version.ref = "rxhttpVersion" }
+rxhttp-compiler = { group = "com.github.liujingxing.rxhttp", name = "rxhttp-compiler", version.ref = "rxhttpVersion" }
+
+camera-core = { group = "androidx.camera", name = "camera-core", version.ref = "camera_version" }
+camera-camera2 = { group = "androidx.camera", name = "camera-camera2", version.ref = "camera_version" }
+camera-lifecycle = { group = "androidx.camera", name = "camera-lifecycle", version.ref = "camera_version" }
+camera-view = { group = "androidx.camera", name = "camera-view", version.ref = "camera_version" }
+camera-extensions = { group = "androidx.camera", name = "camera-extensions", version.ref = "camera_version" }
+
+constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout", version.ref = "constraintlayoutVersion" }
+material = { group = "com.google.android.material", name = "material", version.ref = "materialVersion" }
+
+protobuf-core = { group = "com.google.protobuf", name = "protobuf-kotlin", version.ref = "protobufVersion" }
+protobuf-util = { group = "com.google.protobuf", name = "protobuf-java-util", version.ref = "protobufVersion" }
+
+moshi-kotlin = { group = "com.squareup.moshi", name = "moshi-kotlin", version.ref = "moshiVersion" }
+moshi-kotlin-codegen = { group = "com.squareup.moshi", name = "moshi-kotlin-codegen", version.ref = "moshiVersion" }
+
+okhttp-core = { group = "com.squareup.okhttp3", name = "okhttp", version.ref = "okhttpVersion" }
+okhttp-logging-interceptor = { group = "com.squareup.okhttp3", name = "logging-interceptor", version.ref = "okhttpVersion" }
+okio = { group = "com.squareup.okio", name = "okio", version.ref = "okioVersion" }
+
+kotlinx-coroutines-core = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-core", version.ref = "kotlinxCoroutinesVersion" }
+kotlinx-coroutines-android = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-android", version.ref = "kotlinxCoroutinesVersion" }
+
+navigation-fragment = { group = "androidx.navigation", name = "navigation-fragment-ktx", version.ref = "navigationVersion" }
+navigation-ui = { group = "androidx.navigation", name = "navigation-ui-ktx", version.ref = "navigationVersion" }
+
+coil = { group = "io.coil-kt", name = "coil", version.ref = "coilVersion" }
+coil-base = { group = "io.coil-kt", name = "coil-base", version.ref = "coilVersion" }
+coil-gif = { group = "io.coil-kt", name = "coil-gif", version.ref = "coilVersion" }
+coil-compose = { group = "io.coil-kt",name = "coil-compose",version.ref = "coilComposeVersion"}
+
+mmkv = { group = "com.tencent", name = "mmkv", version.ref = "mmkvVersion" }
+timber = { group = "com.jakewharton.timber", name = "timber", version.ref = "timberVersion" }
+lottie = { group = "com.airbnb.android", name = "lottie", version.ref = "lottieVersion" }
+
+
+
+[bundles]
+lifecycle = ["lifecycle-common", "lifecycle-runtime", "lifecycle-process", "lifecycle-viewmodel", "lifecycle-service"]
+navigation = ["navigation-fragment", "navigation-ui"]
+protobuf = ["protobuf-core", "protobuf-util"]
+okhttp = ["okhttp-core", "okhttp-logging-interceptor", "okio"]
+kotlinx-coroutines = ["kotlinx-coroutines-core", "kotlinx-coroutines-android"]
+coil = ["coil", "coil-gif"]
+camera = ["camera-core", "camera-camera2", "camera-lifecycle", "camera-view", "camera-extensions"]
+rxhttp = ["rxhttp", "rxhttp-moshi", "rxhttp-protobuf"]
+
+
+[plugins]
+android-application = { id = "com.android.application", version.ref = "androidGradleVersion" }
+android-library = { id = "com.android.library", version.ref = "androidGradleVersion" }
+kotlin = { id = "org.jetbrains.kotlin.android", version.ref = "kotlinVersion" }
+kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlinVersion" }
+protobuf-plugin = { id = "com.google.protobuf", version.ref = "protobufPluginVersion" }
+navigation-plugin = { id = "androidx.navigation.safeargs.kotlin", version.ref = "navigationVersion" }
