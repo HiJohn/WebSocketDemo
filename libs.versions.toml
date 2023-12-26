@@ -4,7 +4,7 @@ kotlinVersion = "1.8.20" #https://github.com/JetBrains/kotlin/releases
 protobufPluginVersion = "0.9.1" #https://plugins.gradle.org/plugin/com.google.protobuf
 
 jvmTargetVersion = "1.8"
-minSdk = "21"
+minSdk = "24"
 compileSdk = "33"
 targetSdk = "33"
 androidxCoreVersion = "1.8.0" #https://androidx.tech/artifacts/core/core/

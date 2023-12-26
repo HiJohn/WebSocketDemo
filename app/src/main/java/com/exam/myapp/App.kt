@@ -5,8 +5,8 @@ import com.exam.netstatelib.NetWorkMonitorManager
 
 class App : Application() {
 
-    var app :App by lazy {
-        app = this
+    val app :App by lazy {
+        this@App
     }
 
     override fun onCreate() {

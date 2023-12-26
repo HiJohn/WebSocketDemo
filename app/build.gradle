@@ -1,12 +1,13 @@
 plugins {
-    id "com.android.application"
+    id("com.android.application")
+    id("org.jetbrains.kotlin.android")
 }
 android {
     compileSdk 33
     namespace 'com.exam.myapp'
     defaultConfig {
         applicationId "com.exam.myapp"
-        minSdkVersion 26
+        minSdkVersion libs.versions.minSdk.get().toInteger()
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
