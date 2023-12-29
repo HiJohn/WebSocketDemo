@@ -21,7 +21,7 @@ dependencyResolutionManagement {
 }
 
 
-rootProject.name= "MyApple"
+rootProject.name= "WebsDemo"
 
 include (":app")
 include (":jscall")

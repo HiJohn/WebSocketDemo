@@ -7,8 +7,10 @@ import android.app.usage.StorageStatsManager
 import android.app.usage.UsageStatsManager
 import android.content.Context
 import android.content.Intent
+import android.net.Uri
 import android.os.Build
 import androidx.activity.result.ActivityResultLauncher
+import androidx.activity.result.PickVisualMediaRequest
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
@@ -57,6 +59,11 @@ fun Fragment.registerPermLauncher(callback: (result: Boolean) -> Unit): Activity
     }
 }
 
+fun AppCompatActivity.registerPickVisualMedia(callback: (result: Uri?) -> Unit):ActivityResultLauncher<PickVisualMediaRequest>{
+    return this.registerForActivityResult(ActivityResultContracts.PickVisualMedia()){
+            callback(it)
+    }
+}
 
 inline fun <reified T : Activity> Context.launchActivity() {
     val intent = Intent(this, T::class.java)

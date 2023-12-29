@@ -1,9 +1,10 @@
 plugins {
-    id("com.android.application")
-    id("org.jetbrains.kotlin.android")
+    alias(libs.plugins.android.application)
+    alias(libs.plugins.kotlin)
+    id("kotlin-kapt")
 }
 android {
-    compileSdk 33
+    compileSdk libs.versions.compileSdk.get().toInteger()
     namespace 'com.exam.myapp'
     defaultConfig {
         applicationId "com.exam.myapp"
@@ -26,8 +27,8 @@ android {
 
     flavorDimensions "na"
 
-    productFlavors{
-        hey{
+    productFlavors {
+        hey {
 
         }
     }
@@ -36,13 +37,20 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation 'androidx.appcompat:appcompat:1.6.1'
-    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
-    testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+    implementation(libs.appcompat)
+    implementation(libs.androidx.ktx)
+    implementation(libs.constraintlayout)
+    implementation(libs.material)
 
+    implementation(libs.bundles.okhttp)
+
+    testImplementation(libs.junit)
+    androidTestImplementation(libs.androidXJunit)
+    androidTestImplementation(libs.androidXEspresso)
+
+    implementation(project(':utils'))
     implementation project(":netstatelib")
     implementation project(":jscall")
-    implementation("com.squareup.okhttp3:okhttp:4.11.0")
+//    implementation(libs.okhttpBom)
+//    implementation(libs.bundles.okhttpBom)
 }

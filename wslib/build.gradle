@@ -1,9 +1,10 @@
 plugins{
-    id("com.android.library")
+    alias(libs.plugins.android.library)
+    alias(libs.plugins.kotlin)
 }
 android {
 
-    compileSdk 33
+    compileSdk libs.versions.compileSdk.get().toInteger()
     defaultConfig {
         minSdk libs.versions.minSdk.get().toInteger()
 
@@ -29,12 +30,14 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
     compileOnly(project(":netstatelib"))
-    implementation("com.squareup.okhttp3:okhttp:4.11.0")
+    implementation(libs.bundles.okhttp)
+    implementation(libs.androidx.ktx)
 
-    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    implementation(libs.constraintlayout)
 
-    implementation 'androidx.appcompat:appcompat:1.6.1'
-    testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+    implementation(libs.appcompat)
+
+    testImplementation(libs.junit)
+    androidTestImplementation(libs.androidXJunit)
+    androidTestImplementation(libs.androidXEspresso)
 }
