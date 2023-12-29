@@ -1,7 +1,7 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin)
-    id("kotlin-kapt")
+//    id("kotlin-kapt")
 }
 android {
     compileSdk libs.versions.compileSdk.get().toInteger()
@@ -21,16 +21,16 @@ android {
     }
 
     buildFeatures {
-        dataBinding = true
+//        dataBinding = true
         viewBinding = true
     }
 
-    flavorDimensions "na"
-
-    productFlavors {
-        hey {
-
-        }
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_1_8
+        targetCompatibility = JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = "1.8"
     }
 
 }
@@ -51,6 +51,7 @@ dependencies {
     implementation(project(':utils'))
     implementation project(":netstatelib")
     implementation project(":jscall")
+    implementation project(":navs")
 //    implementation(libs.okhttpBom)
 //    implementation(libs.bundles.okhttpBom)
 }

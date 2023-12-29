@@ -9,6 +9,7 @@ import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import android.os.Build
+import android.widget.Toast
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.PickVisualMediaRequest
 import androidx.activity.result.contract.ActivityResultContracts
@@ -62,6 +63,23 @@ fun Fragment.registerPermLauncher(callback: (result: Boolean) -> Unit): Activity
 fun AppCompatActivity.registerPickVisualMedia(callback: (result: Uri?) -> Unit):ActivityResultLauncher<PickVisualMediaRequest>{
     return this.registerForActivityResult(ActivityResultContracts.PickVisualMedia()){
             callback(it)
+    }
+}
+
+fun Fragment.toast(text:String){
+    Toast.makeText(this.context,text, Toast.LENGTH_SHORT).show()
+}
+
+fun Activity.toast(text:String){
+    Toast.makeText(this,text,Toast.LENGTH_SHORT).show()
+}
+
+/**
+ * use on android 13
+ */
+fun Fragment.registerPickVisualMedia(callback: (result: Uri?) -> Unit):ActivityResultLauncher<PickVisualMediaRequest>{
+    return this.registerForActivityResult(ActivityResultContracts.PickVisualMedia()){
+        callback(it)
     }
 }
 
