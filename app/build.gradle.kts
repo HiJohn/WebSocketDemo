@@ -4,25 +4,29 @@ plugins {
 //    id("kotlin-kapt")
 }
 android {
-    compileSdk libs.versions.compileSdk.get().toInteger()
-    namespace 'com.exam.myapp'
+    compileSdk = libs.versions.compileSdk.get().toInt()
+    namespace = "com.exam.myapp"
     defaultConfig {
-        applicationId "com.exam.myapp"
-        minSdkVersion libs.versions.minSdk.get().toInteger()
-        versionCode 1
-        versionName "1.0"
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        applicationId = "com.exam.myapp"
+        minSdk = libs.versions.compileSdk.get().toInt()
+        versionCode = 1
+        versionName = "1.0"
+        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
         release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            isMinifyEnabled = false
+            proguardFiles(
+                getDefaultProguardFile("proguard-android-optimize.txt"),
+                "proguard-rules.pro"
+            )
         }
     }
 
     buildFeatures {
 //        dataBinding = true
         viewBinding = true
+        buildConfig = true
     }
 
     compileOptions {
@@ -36,7 +40,7 @@ android {
 }
 
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
+//    implementation (fileTree(dir: "libs", include: ["*.jar"]))
     implementation(libs.appcompat)
     implementation(libs.androidx.ktx)
     implementation(libs.constraintlayout)
@@ -48,10 +52,11 @@ dependencies {
     androidTestImplementation(libs.androidXJunit)
     androidTestImplementation(libs.androidXEspresso)
 
-    implementation(project(':utils'))
-    implementation project(":netstatelib")
-    implementation project(":jscall")
-    implementation project(":navs")
-//    implementation(libs.okhttpBom)
-//    implementation(libs.bundles.okhttpBom)
+    implementation(project(":utils"))
+    implementation(project(":netstatelib"))
+    implementation(project(":jscall"))
+    implementation(project(":navs"))
+
+    implementation("androidx.core:core-splashscreen:1.0.0")
+
 }

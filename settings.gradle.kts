@@ -13,11 +13,11 @@ dependencyResolutionManagement {
         mavenCentral()
     }
 
-    versionCatalogs {
-        create("libs") {
-            from(files("libs.versions.toml"))
-        }
-    }
+//    versionCatalogs {
+//        create("libs") {
+//            from(files("libs.versions.toml"))
+//        }
+//    }
 }
 
 
@@ -31,3 +31,4 @@ include (":utils")
 
 
 include(":navs")
+include(":dbfile")

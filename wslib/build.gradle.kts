@@ -3,31 +3,34 @@ plugins{
     alias(libs.plugins.kotlin)
 }
 android {
+    namespace  = "com.exam.wslib"
 
-    compileSdk libs.versions.compileSdk.get().toInteger()
+    compileSdk  = libs.versions.compileSdk.get().toInt()
     defaultConfig {
-        minSdk libs.versions.minSdk.get().toInteger()
+        minSdk = libs.versions.minSdk.get().toInt()
 
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-        consumerProguardFiles 'consumer-rules.pro'
+        testInstrumentationRunner =  "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles("consumer-rules.pro")
     }
 
     buildTypes {
         release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            isMinifyEnabled = false
+            proguardFiles(
+                getDefaultProguardFile("proguard-android-optimize.txt"),
+                "proguard-rules.pro"
+            )
         }
     }
 
     buildFeatures{
         viewBinding = true
     }
-    namespace 'com.exam.wslib'
 
 }
 
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation(fileTree(mapOf("dir" to "libs","include" to listOf("*.jar","*.aar"))))
 
     compileOnly(project(":netstatelib"))
     implementation(libs.bundles.okhttp)
