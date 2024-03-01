@@ -10,6 +10,6 @@ import me.cpm.dbfile.dbs.PlaceDatabase
 
 fun Application.initDataBase() {
     val database: PlaceDatabase by lazy {
-        PlaceDatabase.getDatabase(this)
+        PlaceDatabase.getInstance(this)
     }
 }

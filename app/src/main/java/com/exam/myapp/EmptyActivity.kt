@@ -5,6 +5,8 @@ import androidx.appcompat.app.AppCompatActivity
 import com.exam.myapp.databinding.ActivityEmptyBinding
 import me.jscall.WebViewActivity
 import me.utils.launchActivity
+import me.utils.setClickableSpan
+import me.utils.toast
 import mem.navs.NavMainActivity
 
 class EmptyActivity : AppCompatActivity() {
@@ -20,6 +22,11 @@ class EmptyActivity : AppCompatActivity() {
 
         binding.tackAction.setOnClickListener {
             action()
+
+        }
+
+        binding.tvDemo.setClickableSpan("如要获得称赞请点这里","请点这里",R.color.colorPrimary){
+            toast("你真棒~")
         }
     }
 

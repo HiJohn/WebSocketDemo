@@ -15,25 +15,26 @@ import androidx.activity.result.PickVisualMediaRequest
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.app.ComponentActivity
 import androidx.fragment.app.Fragment
+import java.io.File
+import java.io.FileOutputStream
 
 
-fun Context.getUsageService() :UsageStatsManager{
+fun Context.getUsageService(): UsageStatsManager {
     return getSystemService(Context.USAGE_STATS_SERVICE) as UsageStatsManager
 }
 
 
-fun Context.getAppOpsService() :AppOpsManager{
+fun Context.getAppOpsService(): AppOpsManager {
     return getSystemService(Context.APP_OPS_SERVICE) as AppOpsManager
 }
 
-fun Context.getNotificationManager():NotificationManager{
+fun Context.getNotificationManager(): NotificationManager {
     return getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
 }
 
 @RequiresApi(Build.VERSION_CODES.O)
-fun Context.getStorageStats():StorageStatsManager{
+fun Context.getStorageStats(): StorageStatsManager {
     return getSystemService(Context.STORAGE_STATS_SERVICE) as StorageStatsManager
 }
 
@@ -48,6 +49,7 @@ fun androidx.activity.ComponentActivity.registerPermLauncher(callback: (result: 
         callback(it)
     }
 }
+
 fun AppCompatActivity.registerPermLauncher(callback: (result: Boolean) -> Unit): ActivityResultLauncher<String> {
     return this.registerForActivityResult(ActivityResultContracts.RequestPermission()) {
         callback(it)
@@ -60,26 +62,38 @@ fun Fragment.registerPermLauncher(callback: (result: Boolean) -> Unit): Activity
     }
 }
 
-fun AppCompatActivity.registerPickVisualMedia(callback: (result: Uri?) -> Unit):ActivityResultLauncher<PickVisualMediaRequest>{
-    return this.registerForActivityResult(ActivityResultContracts.PickVisualMedia()){
-            callback(it)
+fun AppCompatActivity.registerPickVisualMedia(callback: (result: Uri?) -> Unit): ActivityResultLauncher<PickVisualMediaRequest> {
+    return this.registerForActivityResult(ActivityResultContracts.PickVisualMedia()) {
+        callback(it)
     }
 }
 
-fun Fragment.toast(text:String){
-    Toast.makeText(this.context,text, Toast.LENGTH_SHORT).show()
+fun Fragment.toast(text: String) {
+    Toast.makeText(this.context, text, Toast.LENGTH_SHORT).show()
 }
 
-fun Activity.toast(text:String){
-    Toast.makeText(this,text,Toast.LENGTH_SHORT).show()
+fun Activity.toast(text: String) {
+    Toast.makeText(this, text, Toast.LENGTH_SHORT).show()
 }
 
 /**
  * use on android 13
  */
-fun Fragment.registerPickVisualMedia(callback: (result: Uri?) -> Unit):ActivityResultLauncher<PickVisualMediaRequest>{
-    return this.registerForActivityResult(ActivityResultContracts.PickVisualMedia()){
+fun Fragment.registerPickVisualMedia(callback: (result: Uri?) -> Unit): ActivityResultLauncher<PickVisualMediaRequest> {
+    return this.registerForActivityResult(ActivityResultContracts.PickVisualMedia()) {
         callback(it)
+    }
+}
+
+
+fun Context.saveBase64Txt(content: String, fileName: String) {
+    val file = File(this.filesDir, fileName)
+    try {
+        FileOutputStream(file).use { stream ->
+            stream.write(content.toByteArray())
+        }
+    } catch (e: Exception) {
+        println(e.message)
     }
 }
 

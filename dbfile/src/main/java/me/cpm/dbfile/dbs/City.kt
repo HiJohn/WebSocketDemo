@@ -12,6 +12,8 @@ import androidx.room.PrimaryKey
 @Entity
 data class City(
     @PrimaryKey val id: Int,
-    @NonNull @ColumnInfo(name = "city_name") val cityName: String,
-    @NonNull @ColumnInfo(name = "province_id") val provinceId: Int,
+    @ColumnInfo(name = "city_name") val cityName: String,
+    @ColumnInfo(name = "province_id") val provinceId: Int,
+    @ColumnInfo(name = "province") val province: String?,
+
 )

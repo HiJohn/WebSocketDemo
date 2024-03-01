@@ -47,6 +47,7 @@ dependencies {
     implementation(libs.material)
 
     implementation(libs.bundles.okhttp)
+    implementation(libs.bundles.lifecycle)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidXJunit)
@@ -56,6 +57,7 @@ dependencies {
     implementation(project(":netstatelib"))
     implementation(project(":jscall"))
     implementation(project(":navs"))
+    implementation(project(":dbfile"))
 
     implementation("androidx.core:core-splashscreen:1.0.0")
 
