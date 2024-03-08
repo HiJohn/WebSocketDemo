@@ -1,7 +1,7 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin)
-//    id("kotlin-kapt")
+    id("kotlin-kapt")
 }
 android {
     compileSdk = libs.versions.compileSdk.get().toInt()
@@ -24,7 +24,7 @@ android {
     }
 
     buildFeatures {
-//        dataBinding = true
+        dataBinding = true
         viewBinding = true
         buildConfig = true
     }
@@ -48,6 +48,7 @@ dependencies {
 
     implementation(libs.bundles.okhttp)
     implementation(libs.bundles.lifecycle)
+    implementation(libs.coil)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidXJunit)
@@ -59,6 +60,6 @@ dependencies {
     implementation(project(":navs"))
     implementation(project(":dbfile"))
 
-    implementation("androidx.core:core-splashscreen:1.0.0")
+    implementation(libs.splashscreen)
 
 }

@@ -7,111 +7,117 @@ jvmTargetVersion = "1.8"
 minSdk = "24"
 compileSdk = "33"
 targetSdk = "33"
-androidxCoreVersion = "1.10.1" #https://androidx.tech/artifacts/core/core/
+androidxCoreVersion = "1.12.0" #https://androidx.tech/artifacts/core/core/
+splashScreenVersion = "1.0.0"
 
-kotlinxCoroutinesVersion = "1.6.4" #https://github.com/Kotlin/kotlinx.coroutines/releases
+kotlinxCoroutinesVersion = "1.7.3" #https://github.com/Kotlin/kotlinx.coroutines/releases
 annotationVersion = "1.6.0" #https://androidx.tech/artifacts/annotation/annotation/
 
 appcompatVersion = "1.6.1" #https://androidx.tech/artifacts/appcompat/appcompat/
 
-activityVersion = "1.7.0" #https://androidx.tech/artifacts/activity/activity-ktx/
-fragmentVersion = "1.5.6" #https://androidx.tech/artifacts/fragment/fragment-ktx/
+activityVersion = "1.8.0" #https://androidx.tech/artifacts/activity/activity-ktx/
+fragmentVersion = "1.6.0" #https://androidx.tech/artifacts/fragment/fragment-ktx/
 
 activityComposeVersion = "1.7.0"
 
 recyclerviewVersion = "1.3.0" #https://androidx.tech/artifacts/recyclerview/recyclerview/
-lifecycleVersion = "2.6.1" #https://androidx.tech/artifacts/lifecycle/lifecycle-common/
+lifecycleVersion = "2.6.2" #https://androidx.tech/artifacts/lifecycle/lifecycle-common/
 
 roomVersion = "2.5.1" #https://androidx.tech/artifacts/room/room-ktx/
 camera_version = "1.3.0-alpha05" #https://androidx.tech/artifacts/camera/camera-camera2/
 
 constraintlayoutVersion = "2.1.4" #https://androidx.tech/artifacts/constraintlayout/constraintlayout/
 navigationVersion = "2.6.0" #https://androidx.tech/artifacts/navigation/navigation-common-ktx/
-materialVersion = "1.9.0" #https://github.com/material-components/material-components-android/releases
+materialVersion = "1.10.0" #https://github.com/material-components/material-components-android/releases
 
 protobufVersion = "3.22.2" #https://github.com/protocolbuffers/protobuf/tree/main/java
-okhttpVersion = "4.11.0" #https://github.com/square/okhttp
+okhttpVersion = "4.12.0" #https://github.com/square/okhttp
 okhttpBomVersion = "4.12.0"
 okioVersion = "3.3.0" #https://github.com/square/okio/tags
 rxhttpVersion = "3.0.2" #https://github.com/liujingxing/rxhttp/releases
 moshiVersion = "1.14.0" #https://github.com/square/moshi/tags
-coilVersion = "2.3.0" #https://github.com/coil-kt/coil/releases
-lottieVersion = "6.0.0" #https://github.com/airbnb/lottie-android/releases
+coilVersion = "2.5.0" #https://github.com/coil-kt/coil/releases
+lottieVersion = "6.3.0" #https://github.com/airbnb/lottie-android/releases
 mmkvVersion = "1.2.15" #https://github.com/Tencent/MMKV/releases
 timberVersion = "5.0.1" #https://github.com/JakeWharton/timber/releases
+
+glideVersion = "4.16.0"
 
 coilComposeVersion = "2.4.0"
 
 
-junitVersoin="4.13.2"
-androidXJunitVersoin="1.1.5"
-androidXExpressoVersoin="3.5.1"
+junitVersoin = "4.13.2"
+androidXJunitVersoin = "1.1.5"
+androidXExpressoVersoin = "3.5.1"
 
 
 [libraries]
-androidx-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "androidxCoreVersion" }
-annotation = { group = "androidx.annotation", name = "annotation", version.ref = "annotationVersion" }
-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompatVersion" }
-activity = { group = "androidx.activity", name = "activity-ktx", version.ref = "activityVersion" }
-fragment = { group = "androidx.fragment", name = "fragment-ktx", version.ref = "fragmentVersion" }
-activity-compose = { group = "androidx.activity", name = "activity-compose", version.ref = "activityComposeVersion" }
-recyclerview = { group = "androidx.recyclerview", name = "recyclerview", version.ref = "recyclerviewVersion" }
+splashscreen = { module = "androidx.core:core-splashscreen", version.ref = "splashScreenVersion" }
+androidx-ktx = { module = "androidx.core:core-ktx", version.ref = "androidxCoreVersion" }
+annotation = { module = "androidx.annotation:annotation", version.ref = "annotationVersion" }
+appcompat = { module = "androidx.appcompat:appcompat", version.ref = "appcompatVersion" }
+activity = { module = "androidx.activity:activity-ktx", version.ref = "activityVersion" }
+fragment = { module = "androidx.fragment:fragment-ktx", version.ref = "fragmentVersion" }
+activity-compose = { module = "androidx.activity:activity-compose", version.ref = "activityComposeVersion" }
+recyclerview = { module = "androidx.recyclerview:recyclerview", version.ref = "recyclerviewVersion" }
 
-lifecycle-common = { group = "androidx.lifecycle", name = "lifecycle-common", version.ref = "lifecycleVersion" }
-lifecycle-runtime = { group = "androidx.lifecycle", name = "lifecycle-runtime-ktx", version.ref = "lifecycleVersion" }
-lifecycle-process = { group = "androidx.lifecycle", name = "lifecycle-process", version.ref = "lifecycleVersion" }
-lifecycle-viewmodel = { group = "androidx.lifecycle", name = "lifecycle-viewmodel-ktx", version.ref = "lifecycleVersion" }
-lifecycle-service = { group = "androidx.lifecycle", name = "lifecycle-service", version.ref = "lifecycleVersion" }
+lifecycle-common = { module = "androidx.lifecycle:lifecycle-common", version.ref = "lifecycleVersion" }
+lifecycle-runtime = { module = "androidx.lifecycle:lifecycle-runtime-ktx", version.ref = "lifecycleVersion" }
+lifecycle-process = { module = "androidx.lifecycle:lifecycle-process", version.ref = "lifecycleVersion" }
+lifecycle-viewmodel = { module = "androidx.lifecycle:lifecycle-viewmodel-ktx", version.ref = "lifecycleVersion" }
+lifecycle-service = { module = "androidx.lifecycle:lifecycle-service", version.ref = "lifecycleVersion" }
 
-room = { group = "androidx.room", name = "room-ktx", version.ref = "roomVersion" }
-room-compiler = { group = "androidx.room", name = "room-compiler", version.ref = "roomVersion" }
+room = { module = "androidx.room:room-ktx", version.ref = "roomVersion" }
+room-compiler = { module = "androidx.room:room-compiler", version.ref = "roomVersion" }
 
-rxhttp = { group = "com.github.liujingxing.rxhttp", name = "rxhttp", version.ref = "rxhttpVersion" }
-rxhttp-moshi = { group = "com.github.liujingxing.rxhttp", name = "converter-moshi", version.ref = "rxhttpVersion" }
-rxhttp-protobuf = { group = "com.github.liujingxing.rxhttp", name = "converter-protobuf", version.ref = "rxhttpVersion" }
-rxhttp-compiler = { group = "com.github.liujingxing.rxhttp", name = "rxhttp-compiler", version.ref = "rxhttpVersion" }
+rxhttp = { module = "com.github.liujingxing.rxhttp:rxhttp", version.ref = "rxhttpVersion" }
+rxhttp-moshi = { module = "com.github.liujingxing.rxhttp:converter-moshi", version.ref = "rxhttpVersion" }
+rxhttp-protobuf = { module = "com.github.liujingxing.rxhttp:converter-protobuf", version.ref = "rxhttpVersion" }
+rxhttp-compiler = { module = "com.github.liujingxing.rxhttp:rxhttp-compiler", version.ref = "rxhttpVersion" }
 
-camera-core = { group = "androidx.camera", name = "camera-core", version.ref = "camera_version" }
-camera-camera2 = { group = "androidx.camera", name = "camera-camera2", version.ref = "camera_version" }
-camera-lifecycle = { group = "androidx.camera", name = "camera-lifecycle", version.ref = "camera_version" }
-camera-view = { group = "androidx.camera", name = "camera-view", version.ref = "camera_version" }
-camera-extensions = { group = "androidx.camera", name = "camera-extensions", version.ref = "camera_version" }
+camera-core = { module = "androidx.camera:camera-core", version.ref = "camera_version" }
+camera-camera2 = { module = "androidx.camera:camera-camera2", version.ref = "camera_version" }
+camera-lifecycle = { module = "androidx.camera:camera-lifecycle", version.ref = "camera_version" }
+camera-view = { module = "androidx.camera:camera-view", version.ref = "camera_version" }
+camera-extensions = { module = "androidx.camera:camera-extensions", version.ref = "camera_version" }
 
-constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout", version.ref = "constraintlayoutVersion" }
-material = { group = "com.google.android.material", name = "material", version.ref = "materialVersion" }
+constraintlayout = { module = "androidx.constraintlayout:constraintlayout", version.ref = "constraintlayoutVersion" }
+material = { module = "com.google.android.material:material", version.ref = "materialVersion" }
 
-protobuf-core = { group = "com.google.protobuf", name = "protobuf-kotlin", version.ref = "protobufVersion" }
-protobuf-util = { group = "com.google.protobuf", name = "protobuf-java-util", version.ref = "protobufVersion" }
+protobuf-core = { module = "com.google.protobuf:protobuf-kotlin", version.ref = "protobufVersion" }
+protobuf-util = { module = "com.google.protobuf:protobuf-java-util", version.ref = "protobufVersion" }
 
-moshi-kotlin = { group = "com.squareup.moshi", name = "moshi-kotlin", version.ref = "moshiVersion" }
-moshi-kotlin-codegen = { group = "com.squareup.moshi", name = "moshi-kotlin-codegen", version.ref = "moshiVersion" }
+moshi-kotlin = { module = "com.squareup.moshi:moshi-kotlin", version.ref = "moshiVersion" }
+moshi-kotlin-codegen = { module = "com.squareup.moshi:moshi-kotlin-codegen", version.ref = "moshiVersion" }
 
-okhttpBom = {group="com.squareup.okhttp3",name = "okhttp-bom",version.ref = "okhttpBomVersion"}
-okhttp = {group="com.squareup.okhttp3",name = "okhttp"}
-okhttp-li = {group = "com.squareup.okhttp3", name = "logging-interceptor"}
+okhttpBom = { module = "com.squareup.okhttp3:okhttp-bom", version.ref = "okhttpBomVersion" }
+okhttp = { module = "com.squareup.okhttp3:okhttp" }
+okhttp-li = { module = "com.squareup.okhttp3:logging-interceptor" }
 
-okhttp-core = { group = "com.squareup.okhttp3", name = "okhttp", version.ref = "okhttpVersion" }
-okhttp-logging-interceptor = { group = "com.squareup.okhttp3", name = "logging-interceptor", version.ref = "okhttpVersion" }
-okio = { group = "com.squareup.okio", name = "okio", version.ref = "okioVersion" }
+okhttp-core = { module = "com.squareup.okhttp3:okhttp", version.ref = "okhttpVersion" }
+okhttp-logging-interceptor = { module = "com.squareup.okhttp3:logging-interceptor", version.ref = "okhttpVersion" }
+okio = { module = "com.squareup.okio:okio", version.ref = "okioVersion" }
 
-kotlinx-coroutines-core = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-core", version.ref = "kotlinxCoroutinesVersion" }
-kotlinx-coroutines-android = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-android", version.ref = "kotlinxCoroutinesVersion" }
+kotlinx-coroutines-core = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "kotlinxCoroutinesVersion" }
+kotlinx-coroutines-android = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-android", version.ref = "kotlinxCoroutinesVersion" }
 
-navigation-fragment = { group = "androidx.navigation", name = "navigation-fragment-ktx", version.ref = "navigationVersion" }
-navigation-ui = { group = "androidx.navigation", name = "navigation-ui-ktx", version.ref = "navigationVersion" }
+navigation-fragment = { module = "androidx.navigation:navigation-fragment-ktx", version.ref = "navigationVersion" }
+navigation-ui = { module = "androidx.navigation:navigation-ui-ktx", version.ref = "navigationVersion" }
 
-coil = { group = "io.coil-kt", name = "coil", version.ref = "coilVersion" }
-coil-base = { group = "io.coil-kt", name = "coil-base", version.ref = "coilVersion" }
-coil-gif = { group = "io.coil-kt", name = "coil-gif", version.ref = "coilVersion" }
-coil-compose = { group = "io.coil-kt",name = "coil-compose",version.ref = "coilComposeVersion"}
+coil = { module = "io.coil-kt:coil", version.ref = "coilVersion" }
+coil-base = { module = "io.coil-kt:coil-base", version.ref = "coilVersion" }
+coil-gif = { module = "io.coil-kt:coil-gif", version.ref = "coilVersion" }
+coil-compose = { module = "io.coil-kt:coil-compose", version.ref = "coilComposeVersion" }
 
-mmkv = { group = "com.tencent", name = "mmkv", version.ref = "mmkvVersion" }
-timber = { group = "com.jakewharton.timber", name = "timber", version.ref = "timberVersion" }
-lottie = { group = "com.airbnb.android", name = "lottie", version.ref = "lottieVersion" }
+glide = { module = "com.github.bumptech.glide:glide", version.ref = "glideVersion" }
 
-junit = { group = "junit",name = "junit" ,version.ref = "junitVersoin"}
-androidXJunit = { group = "androidx.test.ext",name = "junit" ,version.ref = "androidXJunitVersoin"}
-androidXEspresso = { group = "androidx.test.espresso",name = "espresso-core" ,version.ref = "androidXExpressoVersoin"}
+mmkv = { module = "com.tencent:mmkv", version.ref = "mmkvVersion" }
+timber = { module = "com.jakewharton.timber:timber", version.ref = "timberVersion" }
+lottie = { module = "com.airbnb.android:lottie", version.ref = "lottieVersion" }
+
+junit = { module = "junit:junit", version.ref = "junitVersoin" }
+androidXJunit = { module = "androidx.test.ext:junit", version.ref = "androidXJunitVersoin" }
+androidXEspresso = { module = "androidx.test.espresso:espresso-core", version.ref = "androidXExpressoVersoin" }
 
 [bundles]
 lifecycle = ["lifecycle-common", "lifecycle-runtime", "lifecycle-process", "lifecycle-viewmodel", "lifecycle-service"]

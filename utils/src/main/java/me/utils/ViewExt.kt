@@ -84,12 +84,10 @@ fun TextView.setClickableSpan(text: String, clickableText: String, @ColorRes col
     val clickableSpan = object : ClickableSpan() {
         override fun onClick(widget: View) {
             clickListener.onClick(widget)
-            widget.clearFocus()
         }
 
         override fun updateDrawState(ds: TextPaint) {
             super.updateDrawState(ds)
-            
         }
     }
     spannableString.setSpan(clickableSpan, text.indexOf(clickableText), text.indexOf(clickableText) + clickableText.length, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
@@ -97,7 +95,7 @@ fun TextView.setClickableSpan(text: String, clickableText: String, @ColorRes col
     // 设置TextView的文本和点击事件
     this.text = spannableString
     this.movementMethod = LinkMovementMethod.getInstance()
-//    this.setOnClickListener(clickListener)
+
 }
 
 fun Context.compatColor(@ColorRes color:Int):Int{

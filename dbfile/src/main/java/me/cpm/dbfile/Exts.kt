@@ -4,7 +4,7 @@ import android.app.Application
 import me.cpm.dbfile.dbs.PlaceDatabase
 
 /**
- * @author gapi
+ *
  * at 2024/1/17
  */
 
