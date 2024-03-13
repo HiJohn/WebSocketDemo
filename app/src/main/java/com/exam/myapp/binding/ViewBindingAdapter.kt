@@ -1,7 +1,10 @@
 package com.exam.myapp.binding
 
+import android.graphics.Color
+import android.graphics.drawable.GradientDrawable
 import android.view.View
 import androidx.databinding.BindingAdapter
+import me.utils.toPx
 
 object ViewBindingAdapter {
     @BindingAdapter("android:layout_width")
@@ -9,6 +12,13 @@ object ViewBindingAdapter {
         val params = view.layoutParams
         params.width = width
         view.setLayoutParams(params)
+    }
+    @BindingAdapter(value = ["shapeRadius","shapeSolidColor"])
+    fun View.setViewBackground(shapeRadius: Int = 0, shapeSolidColor: Int = Color.TRANSPARENT){
+        val drawable = GradientDrawable()
+        drawable.cornerRadius = context.toPx(shapeRadius.toFloat())
+        drawable.setColor(shapeSolidColor)
+        background = drawable
     }
 
     @BindingAdapter("android:layout_height")

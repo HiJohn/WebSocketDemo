@@ -5,8 +5,8 @@ protobufPluginVersion = "0.9.1" #https://plugins.gradle.org/plugin/com.google.pr
 
 jvmTargetVersion = "1.8"
 minSdk = "24"
-compileSdk = "33"
-targetSdk = "33"
+compileSdk = "34"
+targetSdk = "34"
 androidxCoreVersion = "1.12.0" #https://androidx.tech/artifacts/core/core/
 splashScreenVersion = "1.0.0"
 

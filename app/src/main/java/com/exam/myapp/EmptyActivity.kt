@@ -21,13 +21,18 @@ class EmptyActivity : AppCompatActivity() {
 
 
         binding.tackAction.setOnClickListener {
-            action()
+//            action()
 
+            val dialogFragment = MeDialogFragment()
+            dialogFragment.show(supportFragmentManager,"me")
         }
 
         binding.tvDemo.setClickableSpan("如要获得称赞请点这里","请点这里",R.color.colorPrimary){
             toast("你真棒~")
         }
+
+
+
     }
 
 
