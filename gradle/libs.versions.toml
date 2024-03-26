@@ -32,7 +32,7 @@ materialVersion = "1.10.0" #https://github.com/material-components/material-comp
 
 protobufVersion = "3.22.2" #https://github.com/protocolbuffers/protobuf/tree/main/java
 okhttpVersion = "4.12.0" #https://github.com/square/okhttp
-okhttpBomVersion = "4.12.0"
+#okhttpBomVersion = "4.12.0"
 okioVersion = "3.3.0" #https://github.com/square/okio/tags
 rxhttpVersion = "3.0.2" #https://github.com/liujingxing/rxhttp/releases
 moshiVersion = "1.14.0" #https://github.com/square/moshi/tags
@@ -42,7 +42,7 @@ mmkvVersion = "1.2.15" #https://github.com/Tencent/MMKV/releases
 timberVersion = "5.0.1" #https://github.com/JakeWharton/timber/releases
 
 glideVersion = "4.16.0"
-
+retrofitVersion = "2.9.0"
 coilComposeVersion = "2.4.0"
 
 
@@ -90,9 +90,9 @@ protobuf-util = { module = "com.google.protobuf:protobuf-java-util", version.ref
 moshi-kotlin = { module = "com.squareup.moshi:moshi-kotlin", version.ref = "moshiVersion" }
 moshi-kotlin-codegen = { module = "com.squareup.moshi:moshi-kotlin-codegen", version.ref = "moshiVersion" }
 
-okhttpBom = { module = "com.squareup.okhttp3:okhttp-bom", version.ref = "okhttpBomVersion" }
-okhttp = { module = "com.squareup.okhttp3:okhttp" }
-okhttp-li = { module = "com.squareup.okhttp3:logging-interceptor" }
+#okhttpBom = { module = "com.squareup.okhttp3:okhttp-bom", version.ref = "okhttpBomVersion" }
+#okhttp = { module = "com.squareup.okhttp3:okhttp" }
+#okhttp-li = { module = "com.squareup.okhttp3:logging-interceptor" }
 
 okhttp-core = { module = "com.squareup.okhttp3:okhttp", version.ref = "okhttpVersion" }
 okhttp-logging-interceptor = { module = "com.squareup.okhttp3:logging-interceptor", version.ref = "okhttpVersion" }
@@ -111,6 +111,9 @@ coil-compose = { module = "io.coil-kt:coil-compose", version.ref = "coilComposeV
 
 glide = { module = "com.github.bumptech.glide:glide", version.ref = "glideVersion" }
 
+retrofit = { module = "com.squareup.retrofit2:retrofit",version.ref =  "retrofitVersion"}
+retrofit-gson = { module = "com.squareup.retrofit2:converter-gson",version.ref =  "retrofitVersion"}
+
 mmkv = { module = "com.tencent:mmkv", version.ref = "mmkvVersion" }
 timber = { module = "com.jakewharton.timber:timber", version.ref = "timberVersion" }
 lottie = { module = "com.airbnb.android:lottie", version.ref = "lottieVersion" }
@@ -124,7 +127,8 @@ lifecycle = ["lifecycle-common", "lifecycle-runtime", "lifecycle-process", "life
 navigation = ["navigation-fragment", "navigation-ui"]
 protobuf = ["protobuf-core", "protobuf-util"]
 okhttp = ["okhttp-core", "okhttp-logging-interceptor", "okio"]
-okhttpBom = ["okhttp", "okhttp-li"]
+retrofit = ["retrofit", "retrofit-gson"]
+#okhttpBom = ["okhttp", "okhttp-li"]
 kotlinx-coroutines = ["kotlinx-coroutines-core", "kotlinx-coroutines-android"]
 coil = ["coil", "coil-gif"]
 camera = ["camera-core", "camera-camera2", "camera-lifecycle", "camera-view", "camera-extensions"]

@@ -32,3 +32,4 @@ include (":utils")
 
 include(":navs")
 include(":dbfile")
+include(":app:net")
