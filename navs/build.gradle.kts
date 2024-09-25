@@ -45,6 +45,8 @@ dependencies {
     implementation(libs.bundles.navigation)
     implementation(libs.constraintlayout)
     implementation(project(":utils"))
+    implementation(libs.androidx.lifecycle.livedata.ktx)
+    implementation(libs.lifecycle.viewmodel)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidXJunit)

@@ -3,6 +3,11 @@
 
     <application>
         <activity
+            android:name=".DrawerNavActivity"
+            android:exported="false"
+            android:label="@string/title_activity_drawer_nav"
+            android:theme="@style/Theme.WebsDemo.NoActionBar" />
+        <activity
             android:name=".NavMainActivity"
             android:exported="false" />
     </application>

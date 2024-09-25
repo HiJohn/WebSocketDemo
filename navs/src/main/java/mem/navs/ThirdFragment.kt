@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import me.utils.launchActivity
 import mem.navs.databinding.FragmentThirdBinding
 
 /**
@@ -33,7 +34,9 @@ class ThirdFragment : Fragment() {
 
         }
 
-
+        binding.startDrawer.setOnClickListener {
+            launchActivity<DrawerNavActivity>()
+        }
 
         binding.show3.text = viewModel.netName.value
 

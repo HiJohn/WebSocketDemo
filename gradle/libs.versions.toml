@@ -49,6 +49,7 @@ coilComposeVersion = "2.4.0"
 junitVersoin = "4.13.2"
 androidXJunitVersoin = "1.1.5"
 androidXExpressoVersoin = "3.5.1"
+lifecycleLivedataKtxVersion = "2.8.6"
 
 
 [libraries]
@@ -121,6 +122,7 @@ lottie = { module = "com.airbnb.android:lottie", version.ref = "lottieVersion" }
 junit = { module = "junit:junit", version.ref = "junitVersoin" }
 androidXJunit = { module = "androidx.test.ext:junit", version.ref = "androidXJunitVersoin" }
 androidXEspresso = { module = "androidx.test.espresso:espresso-core", version.ref = "androidXExpressoVersoin" }
+androidx-lifecycle-livedata-ktx = { group = "androidx.lifecycle", name = "lifecycle-livedata-ktx", version.ref = "lifecycleLivedataKtxVersion" }
 
 [bundles]
 lifecycle = ["lifecycle-common", "lifecycle-runtime", "lifecycle-process", "lifecycle-viewmodel", "lifecycle-service"]

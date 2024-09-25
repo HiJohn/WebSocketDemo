@@ -29,10 +29,8 @@ class EmptyActivity : AppCompatActivity() {
 
 
         binding.tackAction.setOnClickListener {
-//            action()
+            action()
 
-            val dialogFragment = MeDialogFragment()
-            dialogFragment.show(supportFragmentManager,"me")
         }
 
         binding.tvDemo.setClickableSpan("如要获得称赞请点这里","请点这里",R.color.colorPrimary){
@@ -43,13 +41,19 @@ class EmptyActivity : AppCompatActivity() {
 
     }
 
+    private fun showDf(){
+
+        val dialogFragment = MeDialogFragment()
+        dialogFragment.show(supportFragmentManager,"me")
+    }
+
     private fun sdReq(){
         sdLauncher.launchSd()
     }
 
     private fun action(){
-//        launchActivity<NavMainActivity>()
-        launchActivity<WebViewActivity>()
+        launchActivity<NavMainActivity>()
+//        launchActivity<WebViewActivity>()
     }
 
 }
