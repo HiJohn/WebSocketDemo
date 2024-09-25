@@ -8,7 +8,7 @@ android {
     namespace = "com.exam.myapp"
     defaultConfig {
         applicationId = "com.exam.myapp"
-        minSdk = libs.versions.compileSdk.get().toInt()
+        minSdk = libs.versions.minSdk.get().toInt()
         versionCode = 1
         versionName = "1.0"
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
