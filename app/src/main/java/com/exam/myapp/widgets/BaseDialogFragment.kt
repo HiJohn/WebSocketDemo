@@ -1,4 +1,4 @@
-package com.exam.myapp
+package com.exam.myapp.widgets
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -10,18 +10,17 @@ import androidx.fragment.app.DialogFragment
  * @author gaozp
  * at 2024/3/13
  */
-class MeDialogFragment : DialogFragment() {
+abstract class BaseDialogFragment : DialogFragment() {
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setStyle(STYLE_NO_FRAME, R.style.AppTheme_FullScreenDialog)
+        setStyle(STYLE_NO_FRAME, getDialogTheme())
     }
 
-    fun getLayoutId(): Int {
-        return R.layout.dialog_me
-    }
+    abstract fun getDialogTheme():Int
 
+    abstract fun getLayoutId(): Int
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -32,8 +31,4 @@ class MeDialogFragment : DialogFragment() {
         return view
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-
-    }
 }

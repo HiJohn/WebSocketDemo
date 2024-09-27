@@ -9,7 +9,7 @@ import androidx.room.RoomDatabase
  * @author gapi
  * at 2024/1/17
  */
-@Database(entities = [City::class, Province::class], version = 1)
+@Database(entities = [City::class, Province::class], version = 1, exportSchema = false)
 abstract class PlaceDatabase : RoomDatabase() {
 
     companion object {

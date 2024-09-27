@@ -49,6 +49,7 @@ dependencies {
     implementation(libs.bundles.okhttp)
     implementation(libs.bundles.lifecycle)
     implementation(libs.coil)
+    implementation(libs.androidx.activity)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidXJunit)

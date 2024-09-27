@@ -1,4 +1,4 @@
-package com.exam.myapp
+package com.exam.myapp.widgets
 
 import android.os.Bundle
 import android.view.LayoutInflater

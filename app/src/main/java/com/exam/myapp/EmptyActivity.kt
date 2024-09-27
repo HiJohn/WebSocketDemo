@@ -2,9 +2,10 @@ package com.exam.myapp
 
 import android.os.Bundle
 import androidx.activity.result.ActivityResultLauncher
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import com.exam.myapp.databinding.ActivityEmptyBinding
-import me.jscall.WebViewActivity
+import com.exam.myapp.widgets.MeDialogFragment
 import me.utils.launchActivity
 import me.utils.launchSd
 import me.utils.registerPermLauncher
@@ -52,7 +53,7 @@ class EmptyActivity : AppCompatActivity() {
     }
 
     private fun action(){
-        launchActivity<NavMainActivity>()
+//        launchActivity<NavMainActivity>()
 //        launchActivity<WebViewActivity>()
     }
 
